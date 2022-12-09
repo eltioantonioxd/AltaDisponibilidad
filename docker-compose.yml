@@ -18,6 +18,7 @@ services:
       - 5000:5000
     volumes:
       - ./Backend:/app
+      - ./protos:/app/protos
     depends_on:
       - db
 

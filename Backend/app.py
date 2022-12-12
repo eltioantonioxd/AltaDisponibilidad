@@ -2,26 +2,11 @@ import json
 from flask import Flask, jsonify
 import requests
 from flask_cors import CORS
-from pymongo import MongoClient
 
 app = Flask(__name__)
 
 CORS(app)
 app.secret_key = 'esto-es-una-clave-muy-secreta'
-
-MONGO_URI = 'mongodb://db-mongo'
-
-client = MongoClient(
-            MONGO_URI,
-            username= 'root',
-            password='brayanyandru'
-        )
-
-db = client['chilet']
-collection = db['celcius']
-
-collection.insert_one({'name': 'Teclado'})
-print('DB: ', db, flush=True)
 
 @app.route("/")
 def index():

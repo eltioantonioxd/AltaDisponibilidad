@@ -42,4 +42,13 @@ services:
       - common.env
     volumes:
       - ./db/datadir:/data/db
+
+  selenium:
+    container_name: scrapper
+    build:
+      context: ./Webscrapping
+      dockerfile: Dockerfile
+    command: tail -f /dev/null
+    volumes:
+      - ./Webscrapping/app:/app
     

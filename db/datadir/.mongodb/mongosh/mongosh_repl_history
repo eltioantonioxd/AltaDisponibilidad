@@ -1,0 +1,39 @@
+db.temperature.find()
+show collections
+show collection
+use chilet
+show databases;
+show collections;
+exit
+db.dropDatabase()
+db.pricedolar.find()
+show collections
+use chilet
+show dbs;
+show collections;
+show dbs;
+show collections;
+db.dropDatabase()
+db.(price-uf).find()
+db.price-uf.find()
+db.priceuf.find()
+db.price-dolar.find()
+db.'price-dolar'.find()
+show collections
+db.temperature.find()
+show collections
+db.temperatura.find()
+db.price-dolar.find()
+show tables;
+use chilet
+show dbs
+exit
+show collections;
+db.celcius.drop()
+show collections
+select * from celcius;
+select * from celcius
+selec * from celcius
+show tables;
+use chilet
+show databases;

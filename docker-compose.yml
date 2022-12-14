@@ -14,7 +14,7 @@ services:
 
   cliente:
     container_name: cliente-flask
-    build: ./Backend/Cliente
+    build: ./Backend/cliente
     restart: always
     ports:
       - 5000:5000
@@ -27,12 +27,12 @@ services:
     
   server:
     container_name: server
-    build: ./Backend/Server
+    build: ./Backend/server
     restart: always
     ports:
       - 50051:50051
     volumes:
-      - ./Backend/Server:/server
+      - ./Backend/server:/server
     depends_on:
       - db
     networks:

@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from config import set_chrome_options
+from day import current_date_format
+from datetime import datetime
 import time
 
 def getTemp():
@@ -18,7 +20,8 @@ def getTemp():
             temp.append(driver.find_element(By.XPATH, '/html/body/span[2]/span[2]/span/span[2]/section/table/tbody/tr['+str(n)+']/td[5]').text)
             n = n + 7
 
-        day = driver.find_element(By.XPATH, '/html/body/span[2]/span[2]/span/span[1]/section/h3/span').text
+        now = datetime.now()
+        day = current_date_format(now)
         data = {'day': day, 'hours': hours, 'temp': temp}
         return data
     finally:

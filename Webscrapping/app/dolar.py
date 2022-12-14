@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from config import set_chrome_options
+from day import current_date_format
+from datetime import datetime
 import time
 
 def getDolar():
@@ -10,7 +12,8 @@ def getDolar():
     time.sleep(3)
     try:
         dolar = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[4]/div/main/div[2]/div[1]/div[1]/c-wiz/div/div[1]/div/div[1]/div/div[1]/div/span/div/div').text
-        day = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz/div/div[4]/div/main/div[2]/div[1]/div[1]/c-wiz/div/div[1]/div/div[2]').text
+        now = datetime.now()
+        day = current_date_format(now)
         data = {'dolar': dolar, 'day': day}
         return data
     finally:

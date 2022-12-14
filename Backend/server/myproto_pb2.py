@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rmyproto.proto\x12\tmypackage\"*\n\x13TemperatureResponse\x12\x13\n\x0btemperature\x18\x01 \x01(\x02\"\x18\n\nUFResponse\x12\n\n\x02uf\x18\x01 \x01(\x02\" \n\x0e\x44ollarResponse\x12\x0e\n\x06\x64ollar\x18\x01 \x01(\x02\"\x07\n\x05\x45mpty2\xba\x01\n\x08Servicer\x12\x42\n\x0eGetTemperature\x12\x10.mypackage.Empty\x1a\x1e.mypackage.TemperatureResponse\x12\x30\n\x05GetUF\x12\x10.mypackage.Empty\x1a\x15.mypackage.UFResponse\x12\x38\n\tGetDollar\x12\x10.mypackage.Empty\x1a\x19.mypackage.DollarResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rmyproto.proto\x12\tmypackage\"*\n\x13TemperatureResponse\x12\x13\n\x0btemperature\x18\x01 \x01(\t\"\x18\n\nUFResponse\x12\n\n\x02uf\x18\x01 \x01(\t\" \n\x0e\x44ollarResponse\x12\x0e\n\x06\x64ollar\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xba\x01\n\x08Servicer\x12\x42\n\x0eGetTemperature\x12\x10.mypackage.Empty\x1a\x1e.mypackage.TemperatureResponse\x12\x30\n\x05GetUF\x12\x10.mypackage.Empty\x1a\x15.mypackage.UFResponse\x12\x38\n\tGetDollar\x12\x10.mypackage.Empty\x1a\x19.mypackage.DollarResponseb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'myproto_pb2', globals())

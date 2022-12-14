@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rmyproto.proto\x12\tmypackage\"9\n\x13TemperatureResponse\x12\x13\n\x0btemperature\x18\x01 \x01(\t\x12\r\n\x05hours\x18\x02 \x01(\t\"\x18\n\nUFResponse\x12\n\n\x02uf\x18\x01 \x01(\t\" \n\x0e\x44ollarResponse\x12\x0e\n\x06\x64ollar\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xba\x01\n\x08Servicer\x12\x42\n\x0eGetTemperature\x12\x10.mypackage.Empty\x1a\x1e.mypackage.TemperatureResponse\x12\x30\n\x05GetUF\x12\x10.mypackage.Empty\x1a\x15.mypackage.UFResponse\x12\x38\n\tGetDollar\x12\x10.mypackage.Empty\x1a\x19.mypackage.DollarResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rmyproto.proto\x12\tmypackage\"K\n\x13TemperatureResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0b\n\x03\x64\x61y\x18\x02 \x01(\t\x12\r\n\x05hours\x18\x03 \x03(\t\x12\x0c\n\x04temp\x18\x04 \x03(\t\"1\n\nUFResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\n\n\x02uf\x18\x02 \x01(\t\x12\x0b\n\x03\x64\x61y\x18\x03 \x01(\t\"9\n\x0e\x44ollarResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x64ollar\x18\x02 \x01(\t\x12\x0b\n\x03\x64\x61y\x18\x03 \x01(\t\"\x07\n\x05\x45mpty2\xba\x01\n\x08Servicer\x12\x42\n\x0eGetTemperature\x12\x10.mypackage.Empty\x1a\x1e.mypackage.TemperatureResponse\x12\x30\n\x05GetUF\x12\x10.mypackage.Empty\x1a\x15.mypackage.UFResponse\x12\x38\n\tGetDollar\x12\x10.mypackage.Empty\x1a\x19.mypackage.DollarResponseb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'myproto_pb2', globals())
@@ -21,13 +21,13 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _TEMPERATURERESPONSE._serialized_start=28
-  _TEMPERATURERESPONSE._serialized_end=85
-  _UFRESPONSE._serialized_start=87
-  _UFRESPONSE._serialized_end=111
-  _DOLLARRESPONSE._serialized_start=113
-  _DOLLARRESPONSE._serialized_end=145
-  _EMPTY._serialized_start=147
-  _EMPTY._serialized_end=154
-  _SERVICER._serialized_start=157
-  _SERVICER._serialized_end=343
+  _TEMPERATURERESPONSE._serialized_end=103
+  _UFRESPONSE._serialized_start=105
+  _UFRESPONSE._serialized_end=154
+  _DOLLARRESPONSE._serialized_start=156
+  _DOLLARRESPONSE._serialized_end=213
+  _EMPTY._serialized_start=215
+  _EMPTY._serialized_end=222
+  _SERVICER._serialized_start=225
+  _SERVICER._serialized_end=411
 # @@protoc_insertion_point(module_scope)

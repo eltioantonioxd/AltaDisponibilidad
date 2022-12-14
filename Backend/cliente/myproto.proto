@@ -12,20 +12,26 @@ service Servicer {
 // Estructura de respuesta para el servicio de temperatura
 message TemperatureResponse {
     // Valor de la temperatura en grados centígrados
-    string temperature = 1;
-    string hours = 2;
+    string id = 1;
+    string day = 2;
+    repeated string hours = 3;
+    repeated string temp = 4;
 }
 
 // Estructura de respuesta para el servicio de UF
 message UFResponse {
     // Valor de la UF en pesos chilenos
-    string uf = 1;
+    string id = 1;
+    string uf = 2;
+    string day = 3;
 }
 
 // Estructura de respuesta para el servicio de dólar
 message DollarResponse {
     // Valor del dólar en pesos chilenos
-    string dollar = 1;
+    string id = 1;
+    string dollar = 2;
+    string day = 3;
 }
 
 // Estructura vacía utilizada como parámetro para los métodos de los servicios

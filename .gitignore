@@ -1,2 +1,4 @@
-./db/datadir
+./db
 ./Webscrapping/app/__pycache__/
+./Backend/cliente/__pycache__/
+./Backend/server/__pycache__/

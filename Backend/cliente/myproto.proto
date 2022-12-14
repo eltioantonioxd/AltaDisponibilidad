@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package mypackage;
+
+// Servicio
+service Servicer {
+    rpc GetTemperature (Empty) returns (TemperatureResponse);
+    rpc GetUF (Empty) returns (UFResponse);
+    rpc GetDollar (Empty) returns (DollarResponse);
+}
+
+// Estructura de respuesta para el servicio de temperatura
+message TemperatureResponse {
+    // Valor de la temperatura en grados centígrados
+    string temperature = 1;
+}
+
+// Estructura de respuesta para el servicio de UF
+message UFResponse {
+    // Valor de la UF en pesos chilenos
+    string uf = 1;
+}
+
+// Estructura de respuesta para el servicio de dólar
+message DollarResponse {
+    // Valor del dólar en pesos chilenos
+    string dollar = 1;
+}
+
+// Estructura vacía utilizada como parámetro para los métodos de los servicios
+message Empty {}

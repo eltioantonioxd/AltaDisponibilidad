@@ -9,6 +9,8 @@ services:
       - 8080:80
     volumes:
       - ./Front/src:/usr/share/nginx/html
+    networks:
+      alta_disponibilidad:
 
   cliente:
     container_name: cliente-flask
@@ -20,6 +22,8 @@ services:
       - ./Backend/Cliente:/cliente
     depends_on:
       - server
+    networks:
+      alta_disponibilidad:
     
   server:
     container_name: server
@@ -31,17 +35,22 @@ services:
       - ./Backend/Server:/server
     depends_on:
       - db
+    networks:
+      alta_disponibilidad:
+        ipv4_address: 172.23.0.5
 
   db:
     image: mongo:6.0.3
     container_name: db-mongo
     restart: always
     ports:
-      - 8081:8081
+      - 27018:27017
     env_file:
       - common.env
     volumes:
       - ./db/datadir:/data/db
+    networks:
+      alta_disponibilidad:
 
   selenium:
     container_name: scrapper
@@ -51,4 +60,14 @@ services:
     command: tail -f /dev/null
     volumes:
       - ./Webscrapping/app:/app
+    networks:
+      alta_disponibilidad:
     
+networks:
+  alta_disponibilidad:
+    name: malba_sempai
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "172.23.0.0/16"
+          gateway: "172.23.0.1"

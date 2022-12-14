@@ -21,3 +21,4 @@
 {"t":{"$date":"2022-12-14T06:32:41.465Z"},"s":"I","c":"MONGOSH-SNIPPETS","id":1000000028,"ctx":"snippets","msg":"Modifying snippets package.json failed","attr":{"error":"ENOENT: no such file or directory, open '/data/db/.mongodb/mongosh/snippets/package.json'"}}
 {"t":{"$date":"2022-12-14T06:32:41.496Z"},"s":"I","c":"MONGOSH","id":1000000002,"ctx":"repl","msg":"Started REPL","attr":{"version":"1.6.1"}}
 {"t":{"$date":"2022-12-14T06:32:42.230Z"},"s":"I","c":"MONGOSH-SNIPPETS","id":1000000027,"ctx":"snippets","msg":"Fetching snippet index done"}
+{"t":{"$date":"2022-12-14T06:36:18.706Z"},"s":"I","c":"MONGOSH","id":1000000045,"ctx":"analytics","msg":"Flushed outstanding data","attr":{"flushError":null,"flushDuration":0}}

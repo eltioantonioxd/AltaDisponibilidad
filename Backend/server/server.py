@@ -23,8 +23,6 @@ priceuf = ['id', 'uf', 'day']
 temperature = ['id', 'day', 'hours', 'temp']
 
 
-
-
 class DataServer(myproto_pb2_grpc.Servicer):
 
     def GetTemperature(self, request, context):
@@ -68,7 +66,7 @@ def serve():
     server.add_insecure_port('[::]:50051')  
     server.start()
     server.wait_for_termination()
-    #172.18.0.4
+    #172.23.0.5
     
 if __name__ == '__main__':
     serve()

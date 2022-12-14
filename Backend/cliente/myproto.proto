@@ -13,6 +13,7 @@ service Servicer {
 message TemperatureResponse {
     // Valor de la temperatura en grados centígrados
     string temperature = 1;
+    string hours = 2;
 }
 
 // Estructura de respuesta para el servicio de UF

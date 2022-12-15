@@ -53,7 +53,41 @@
                 </div>
             </div>
     </div>
+    <section class="container mt-5 ml-0">
+          <div class="row">
+             <div class="col-6">
+              <div class="card border-0">
+                <div class="card-body">
+                  <h3 class="card-title text-primary">Valor Dólar Hoy</h3>
+                  <p class="day">Valor del dia: </p>
+                  <hr>
+                  <h4 class="dollar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
+                    width="40"> USD → $ </h4>
+                  <hr>
+                  <p class="lead dollar-2">$ 1 dólares = $ </p>
+                </div>
+              </div>
+             </div> 
+
+             <div class="col-6">
+              <div class="card border-0">
+                <div class="card-body">
+                  <h3 class="card-title text-success">Valor UF Hoy</h3>
+                  <p class="day">Valor del dia: </p>
+                  <hr>
+                  <h4 class="uf">1 UF → </h4>
+                  <hr>
+                  <p class="lead uf">$ 1 unidad(es) de fomento = </p>
+                </div>
+              </div>
+             </div> 
+  
+          </div>
+    </section>
   </main>
+  <footer>
+
+  </footer>
     <script type = "text/javascript">
         $(document).ready(function () {  
 
@@ -118,7 +152,28 @@
                     $('.temp-min').append(min_max[0]+'°C')
                     hourstemp(data.hours, data.temp)
                 },   
-            });         
+            });    
+            
+            
+            $.ajax({  
+              type: "GET",  
+              url: "http://localhost:5000/dollar",    
+              dataType: "json", 
+              success: function (data, statusText, jqXHR) {  
+                  $('.dollar').append(data.dollar+` <img src='https://cdn.pixabay.com/photo/2012/04/11/17/47/chile-29125_640.png' width="40">`)
+                  $('.dollar-2').append(data.dollar+` pesos chilenos`)
+                },   
+          });   
+          
+          $.ajax({  
+            type: "GET",  
+            url: "http://localhost:5000/uf",    
+            dataType: "json", 
+            success: function (data, statusText, jqXHR) {  
+                $('.uf').append(data.uf)
+              },   
+        });
+          
        }); 
     </script>
 

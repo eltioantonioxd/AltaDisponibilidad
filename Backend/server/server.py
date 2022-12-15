@@ -17,35 +17,29 @@ client = MongoClient(
         )
 
 db = client['chilet']
-collections = ['pricedolar','priceuf', 'temperature']
-pricedolar = ['id', 'dolar', 'day']
-priceuf = ['id', 'uf', 'day']
-temperature = ['id', 'day', 'hours', 'temp']
 
+def current_date_format(date):
+    months = ("Enero", "Febrero", "Marzo", "Abri", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+    day = date.day
+    month = months[date.month - 1]
+    year = date.year
+    messsage = "{} de {} del {}".format(day, month, year)
+
+    return messsage
+
+now = datetime.now()
+day = current_date_format(now)
 
 class DataServer(myproto_pb2_grpc.Servicer):
 
     def GetTemperature(self, request, context):
-
-        current_time = datetime.now()
-        current_hour = current_time.hour
-
-        temperature= db.temperature.find_one({'hours': {'$gte': current_hour}}, sort=[('hours', 1)])
+        
+        temperature= db['temperature'].find_one({'day': day})
         temperature={
-            "id": "639937e9d862a52b17388d84",
-            "day": "14 de Diciembre del 2022",
-            "hours": [
-            "02:00", "05:00",
-            "08:00", "11:00",
-            "14:00", "17:00",
-            "20:00", "23:00"
-            ],
-            "temp": [
-            "20°", "18°",
-            "21°", "28°",
-            "32°", "32°",
-            "27°", "21°"
-            ]
+            "id": str(temperature['_id']),
+            "day": temperature['day'],
+            "hours": temperature['hours'],
+            "temp": temperature['temp']
         }
         temperature_response = myproto_pb2.TemperatureResponse(**temperature)
 
@@ -53,27 +47,28 @@ class DataServer(myproto_pb2_grpc.Servicer):
 
 
     def GetUF(self, request, context):
-
-        #fecha_hoy = datetime.date.today()
-        #fecha_hoy_formateada = fecha_hoy.strftime("%d/%m/%Y")
-
-        #uf= db.priceuf.find_one({'day': {'$gte': fecha_hoy}}, sort=[('day', 1)])
-        uf= {
-            "id": "639937e9d862a52b17388d84",
-            "day": "14 de Diciembre del 2022",
-            "uf": "30.000"
+                
+        uf = db['priceuf'].find_one({'day': day})
+        
+        data= {
+            "id": str(uf['_id']),
+            "day": uf['day'],
+            "uf": uf['uf']
         }
-        uf_response = myproto_pb2.UFResponse(**uf)
+        uf_response = myproto_pb2.UFResponse(**data)
 
         return uf_response
 
 
     def GetDollar(self, request, context):
-        
-        fecha_hoy = datetime.date.today()
-        
-        dollar= db.pricedolar.find_one({'day': {'$gte': fecha_hoy}}, sort=[('day', 1)])
-        dollar_response = myproto_pb2.DollarResponse(**dollar)
+                
+        dollar = db['pricedolar'].find_one({'day': day})
+        data= {
+            "id": str(dollar['_id']),
+            "day": dollar['day'],
+            "dollar": dollar['dollar']
+        }
+        dollar_response = myproto_pb2.DollarResponse(**data)
 
         return dollar_response
 

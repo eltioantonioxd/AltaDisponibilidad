@@ -31,20 +31,39 @@ class DataServer(myproto_pb2_grpc.Servicer):
         current_hour = current_time.hour
 
         temperature= db.temperature.find_one({'hours': {'$gte': current_hour}}, sort=[('hours', 1)])
-        temperature = temperature['temp']
-        temperature_response = myproto_pb2.TemperatureResponse(temperature=temperature)
+        temperature={
+            "id": "639937e9d862a52b17388d84",
+            "day": "14 de Diciembre del 2022",
+            "hours": [
+            "02:00", "05:00",
+            "08:00", "11:00",
+            "14:00", "17:00",
+            "20:00", "23:00"
+            ],
+            "temp": [
+            "20°", "18°",
+            "21°", "28°",
+            "32°", "32°",
+            "27°", "21°"
+            ]
+        }
+        temperature_response = myproto_pb2.TemperatureResponse(**temperature)
 
         return temperature_response
 
 
     def GetUF(self, request, context):
 
-        fecha_hoy = datetime.date.today()
+        #fecha_hoy = datetime.date.today()
         #fecha_hoy_formateada = fecha_hoy.strftime("%d/%m/%Y")
 
-        uf= db.priceuf.find_one({'day': {'$gte': fecha_hoy}}, sort=[('day', 1)])
-        uf= uf['uf']
-        uf_response = myproto_pb2.UFResponse(uf=uf)
+        #uf= db.priceuf.find_one({'day': {'$gte': fecha_hoy}}, sort=[('day', 1)])
+        uf= {
+            "id": "639937e9d862a52b17388d84",
+            "day": "14 de Diciembre del 2022",
+            "uf": "30.000"
+        }
+        uf_response = myproto_pb2.UFResponse(**uf)
 
         return uf_response
 
@@ -54,8 +73,7 @@ class DataServer(myproto_pb2_grpc.Servicer):
         fecha_hoy = datetime.date.today()
         
         dollar= db.pricedolar.find_one({'day': {'$gte': fecha_hoy}}, sort=[('day', 1)])
-        dollar= dollar['dolar']
-        dollar_response = myproto_pb2.DollarResponse(dollar=dollar)
+        dollar_response = myproto_pb2.DollarResponse(**dollar)
 
         return dollar_response
 

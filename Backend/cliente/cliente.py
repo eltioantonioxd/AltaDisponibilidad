@@ -15,7 +15,7 @@ app.secret_key = 'esto-es-una-clave-muy-secreta'
 class DataClient:
     def __init__(self):
        
-        self.channel = grpc.insecure_channel('172.23.0.5:50051')
+        self.channel = grpc.insecure_channel('172.23.0.5:50051', options=(('grpc.enable_http_proxy', 0),))
         #channel = grpc.insecure_channel('localhost:5005', options=(('grpc.enable_http_proxy', 0),))
         self.stub = myproto_pb2_grpc.ServicerStub(self.channel)
 

@@ -4,7 +4,7 @@ metadata:
   name: service-front
   namespace: andrunose
   uid: 7af695d9-4b3a-4a89-add1-b3985b3bcdf4
-  resourceVersion: '85286'
+  resourceVersion: '88612'
   creationTimestamp: '2022-12-21T17:37:05Z'
   labels:
     app: front
@@ -15,6 +15,7 @@ metadata:
     kubernetes.io/elb.health-check-option: '{"protocol":"TCP","delay":"5","timeout":"10","max_retries":"3"}'
     kubernetes.io/elb.id: fced2490-2538-45d1-aba9-e468980a971c
     kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
+    kubernetes.io/elb.mark: '0'
   finalizers:
     - service.kubernetes.io/load-balancer-cleanup
   managedFields:
@@ -56,10 +57,12 @@ metadata:
     - manager: huawei-cloud-controller-manager
       operation: Update
       apiVersion: v1
-      time: '2022-12-21T17:37:08Z'
+      time: '2022-12-21T17:49:19Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
+          'f:annotations':
+            'f:kubernetes.io/elb.mark': {}
           'f:finalizers':
             .: {}
             'v:"service.kubernetes.io/load-balancer-cleanup"': {}

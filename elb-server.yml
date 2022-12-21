@@ -14,5 +14,3 @@ spec:
     version: v1
   type: ClusterIP
   sessionAffinity: None
-status:
-  loadBalancer: {}

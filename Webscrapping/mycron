@@ -1,0 +1,1 @@
+0 0 * * * python3 /cronjob/app/main.py >>/cronjob/out.log;

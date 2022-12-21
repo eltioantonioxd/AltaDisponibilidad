@@ -32,7 +32,7 @@
                     </div>
                     <div class="row">
                         <div class="col-7 temp temperatura"></div>
-                        <div class="col-5 time"><p class="hora-actual"></p><h2><b>Jueves</b></h2></div>
+                        <div class="col-5 time"><p id="hora-actual"></p><h2><b id="dia-actual">Jueves</b></h2></div>
                     </div>
                     <div class="bottom">                        
                         <div class="row text-center">
@@ -89,6 +89,32 @@
 
   </footer>
     <script type = "text/javascript">
+        function showTime(){
+          myDate = new Date();
+          hours = myDate.getHours();
+          minutes = myDate.getMinutes();
+          seconds = myDate.getSeconds();
+          if (hours < 10) hours = 0 + hours;
+
+          if (minutes < 10) minutes = "0" + minutes;
+
+          if (seconds < 10) seconds = "0" + seconds;
+
+          $("#hora-actual").text(hours+ ":" +minutes+ ":" +seconds+ getAMPM(myDate));
+          setTimeout("showTime()", 1000);
+        }
+        showTime();
+
+        function getAMPM(dateObj) {
+          return dateObj.getHours() < 12 ? ' am' : 'pm';
+        }
+
+        const weekday = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sabado"];
+
+        const d = new Date();
+        let day = weekday[d.getDay()];
+        document.getElementById("dia-actual").innerHTML = day;
+
         $(document).ready(function () {  
 
             function date(data){
@@ -103,13 +129,6 @@
                         return data[i]
                     }
                 }
-            }
-
-            function hour(){
-                let today = new Date();
-                // obtener la hora en la configuración regional de EE. UU.
-                let now = today.toLocaleTimeString('en-US');
-                return now
             }
 
             function minMax(data){
@@ -145,7 +164,7 @@
                     $('.day').append(data.day)
                     console.log(data)
                     $('.temperatura').append(date(data.temp)+'C')
-                    $('.hora-actual').append(hour())
+
                     console.log(data.temp)
                     let min_max = minMax(data.temp)
                     $('.temp-max').append(min_max[1]+'°C')

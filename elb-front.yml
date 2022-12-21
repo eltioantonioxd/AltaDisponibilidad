@@ -1,8 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: front
-  namespace: andrunose
+  name: elb-front
 spec:
   ports:
     - name: cce-service-0

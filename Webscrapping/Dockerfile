@@ -22,7 +22,7 @@ RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/ \
 # Set display port as an environment variable
 ENV DISPLAY=:99
 
-COPY . /app
+COPY ./Webscrapping /app
 WORKDIR /app
 
 RUN pip install --upgrade pip

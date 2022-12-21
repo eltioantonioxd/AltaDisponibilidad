@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: cliente
-  namespace: andrunose
 spec:
   ports:
     - name: cce-service-0

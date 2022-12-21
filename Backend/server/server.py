@@ -8,7 +8,7 @@ from time import time
 
 
 
-MONGO_URI = 'mongodb://182.160.26.111'
+MONGO_URI = 'mongodb://service-mongo.andrunose.svc.cluster.local'
 
 client = MongoClient(
             MONGO_URI,

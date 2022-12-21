@@ -2,21 +2,17 @@ kind: Service
 apiVersion: v1
 metadata:
   name: service-servidor
+  namespace: andrunose
 spec:
   ports:
-    - name: cce-service-0
+    - name: cce-service-grpc
       protocol: TCP
       port: 50051
       targetPort: 50051
   selector:
     app: servidor
     version: v1
-  type: LoadBalancer
+  type: ClusterIP
   sessionAffinity: None
-  loadBalancerIP: 182.160.26.111
-  externalTrafficPolicy: Cluster
 status:
-  loadBalancer:
-    ingress:
-      - ip: 182.160.26.111
-      - ip: 192.168.0.203
+  loadBalancer: {}

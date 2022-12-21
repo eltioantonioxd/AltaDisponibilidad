@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: cliente
+  name: elb-cliente
 spec:
   ports:
     - name: cce-service-0

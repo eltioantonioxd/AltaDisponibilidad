@@ -4,7 +4,7 @@ metadata:
   name: servidor
   labels:
     app: servidor
-  namespace: andru
+  namespace: andrunose
   annotations:
     kubernetes.io/elb.class: union
     kubernetes.io/elb.subnet-id: c8d66e29-2050-4f3f-95ab-ddcd79248d5c

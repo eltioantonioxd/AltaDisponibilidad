@@ -7,7 +7,7 @@ metadata:
     appgroup: ''
     version: v1
   name: cliente
-  namespace: andru
+  namespace: andrunose
 spec:
   selector:
     matchLabels:

@@ -3,97 +3,14 @@ apiVersion: v1
 metadata:
   name: servidor
   namespace: andrunose
-  uid: 2a9315bf-a835-4a9b-99b9-8e00a1a78e7f
-  resourceVersion: '24801'
-  creationTimestamp: '2022-12-21T06:21:44Z'
-  labels:
-    app: servidor
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"kubernetes.io/elb.autocreate":"{\"type\":\"public\",\"bandwidth_name\":\"cce-bandwidth-1671601261564\",\"bandwidth_chargemode\":\"traffic\",\"bandwidth_size\":5,\"bandwidth_sharetype\":\"PER\",\"eip_type\":\"5_bgp\",\"name\":\"server\"}","kubernetes.io/elb.class":"union","kubernetes.io/elb.health-check-flag":"on","kubernetes.io/elb.health-check-option":"{\"protocol\":\"TCP\",\"delay\":\"5\",\"timeout\":\"10\",\"max_retries\":\"3\"}","kubernetes.io/elb.lb-algorithm":"ROUND_ROBIN","kubernetes.io/elb.subnet-id":"c8d66e29-2050-4f3f-95ab-ddcd79248d5c"},"labels":{"app":"servidor"},"name":"servidor","namespace":"andrunose"},"spec":{"externalTrafficPolicy":"Cluster","loadBalancerIP":"","ports":[{"name":"cce-service-0","nodePort":0,"port":5000,"protocol":"TCP","targetPort":5000}],"selector":{"app":"servidor"},"type":"LoadBalancer"}}
-    kubernetes.io/elb.autocreate: '{"type":"public","bandwidth_name":"cce-bandwidth-1671601261564","bandwidth_chargemode":"traffic","bandwidth_size":5,"bandwidth_sharetype":"PER","eip_type":"5_bgp","name":"server"}'
-    kubernetes.io/elb.class: union
-    kubernetes.io/elb.eip-id: bb6cef42-44f8-41fb-bcaa-4e879afceb2c
-    kubernetes.io/elb.health-check-flag: 'on'
-    kubernetes.io/elb.health-check-option: '{"protocol":"TCP","delay":"5","timeout":"10","max_retries":"3"}'
-    kubernetes.io/elb.id: 3b43ad22-5948-4712-ab25-7c30042f109d
-    kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
-    kubernetes.io/elb.subnet-id: c8d66e29-2050-4f3f-95ab-ddcd79248d5c
-  finalizers:
-    - service.kubernetes.io/load-balancer-cleanup
-  managedFields:
-    - manager: kubectl
-      operation: Update
-      apiVersion: v1
-      time: '2022-12-21T06:21:44Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:kubectl.kubernetes.io/last-applied-configuration': {}
-            'f:kubernetes.io/elb.autocreate': {}
-            'f:kubernetes.io/elb.class': {}
-            'f:kubernetes.io/elb.health-check-flag': {}
-            'f:kubernetes.io/elb.health-check-option': {}
-            'f:kubernetes.io/elb.lb-algorithm': {}
-            'f:kubernetes.io/elb.subnet-id': {}
-          'f:labels':
-            .: {}
-            'f:app': {}
-        'f:spec':
-          'f:externalTrafficPolicy': {}
-          'f:ports': {}
-          'f:selector':
-            .: {}
-            'f:app': {}
-          'f:sessionAffinity': {}
-          'f:type': {}
-    - manager: huawei-cloud-controller-manager
-      operation: Update
-      apiVersion: v1
-      time: '2022-12-21T06:21:53Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            'f:kubernetes.io/elb.eip-id': {}
-            'f:kubernetes.io/elb.id': {}
-          'f:finalizers':
-            .: {}
-            'v:"service.kubernetes.io/load-balancer-cleanup"': {}
-        'f:spec':
-          'f:loadBalancerIP': {}
-        'f:status':
-          'f:loadBalancer':
-            'f:ingress': {}
-    - manager: Go-http-client
-      operation: Update
-      apiVersion: v1
-      time: '2022-12-21T06:34:15Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:ports':
-            'k:{"port":50051,"protocol":"TCP"}':
-              .: {}
-              'f:name': {}
-              'f:nodePort': {}
-              'f:port': {}
-              'f:protocol': {}
-              'f:targetPort': {}
 spec:
   ports:
     - name: cce-service-0
       protocol: TCP
       port: 50051
       targetPort: 50051
-      nodePort: 32221
   selector:
     app: servidor
-  clusterIP: 10.247.114.102
-  clusterIPs:
-    - 10.247.114.102
   type: LoadBalancer
   sessionAffinity: None
   loadBalancerIP: 182.160.26.111

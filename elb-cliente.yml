@@ -1,14 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: service-front
+  name: service-cliente
   namespace: andrunose
-  uid: 7af695d9-4b3a-4a89-add1-b3985b3bcdf4
-  resourceVersion: '85286'
-  creationTimestamp: '2022-12-21T17:37:05Z'
+  uid: 59b1851d-e4da-453a-be38-d0831cec088f
+  resourceVersion: '85891'
+  creationTimestamp: '2022-12-21T17:39:21Z'
   labels:
-    app: front
-    name: service-front
+    app: cliente
+    name: service-cliente
   annotations:
     kubernetes.io/elb.class: union
     kubernetes.io/elb.health-check-flag: 'on'
@@ -21,7 +21,7 @@ metadata:
     - manager: Go-http-client
       operation: Update
       apiVersion: v1
-      time: '2022-12-21T17:37:05Z'
+      time: '2022-12-21T17:39:21Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -41,7 +41,7 @@ metadata:
           'f:loadBalancerIP': {}
           'f:ports':
             .: {}
-            'k:{"port":80,"protocol":"TCP"}':
+            'k:{"port":5000,"protocol":"TCP"}':
               .: {}
               'f:name': {}
               'f:port': {}
@@ -56,7 +56,7 @@ metadata:
     - manager: huawei-cloud-controller-manager
       operation: Update
       apiVersion: v1
-      time: '2022-12-21T17:37:08Z'
+      time: '2022-12-21T17:39:24Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
@@ -70,10 +70,10 @@ spec:
   ports:
     - name: cce-service-0
       protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 5000
+      targetPort: 5000
   selector:
-    app: front
+    app: cliente
     version: v1
   type: LoadBalancer
   sessionAffinity: None

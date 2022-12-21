@@ -2,7 +2,7 @@ FROM python:3.7-alpine
 
 WORKDIR /cliente
 
-COPY . .
+COPY ./Backend/cliente .
 
 
 RUN pip3 install -r requirements.txt

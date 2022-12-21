@@ -149,7 +149,7 @@
             function hourstemp(hours, temp){
               for(let i=0; i<hours.length; i++){
                 html = `
-                <div class="mb-4 text-center">`+hours[i]+`&nbsp; <b>`+temp[i]+`C</b></div>
+                <div class="mb-4 text-center">`+hours[i]+`&nbsp; <b>`+temp[i]+`</b></div>
                 `
                 $('.hoursDay').append(html)
                   console.log(hours[i])
@@ -163,7 +163,7 @@
                 success: function (data, statusText, jqXHR) {  
                     $('.day').append(data.day)
                     console.log(data)
-                    $('.temperatura').append(date(data.temp)+'C')
+                    $('.temperatura').append(date(data.temp))
 
                     console.log(data.temp)
                     let min_max = minMax(data.temp)

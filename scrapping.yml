@@ -22,7 +22,7 @@ spec:
         version: v1
     spec:
       containers:
-        - image: 'swr.la-south-2.myhuaweicloud.com/altadispo/scrapping:{{global_commit}}'
+        - image: 'swr.la-south-2.myhuaweicloud.com/altadispo/webscrapping:{{global_commit}}'
           name: container-scrapping
           resources:
             requests:

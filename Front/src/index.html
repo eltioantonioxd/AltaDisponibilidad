@@ -158,7 +158,7 @@
 
             $.ajax({  
                 type: "GET",  
-                url: "http://localhost:5000/temperature",    
+                url: "http://182.160.26.111:5000/temperature",    
                 dataType: "json", 
                 success: function (data, statusText, jqXHR) {  
                     $('.day').append(data.day)
@@ -176,7 +176,7 @@
             
             $.ajax({  
               type: "GET",  
-              url: "http://localhost:5000/dollar",    
+              url: "http://182.160.26.111:5000/dollar",    
               dataType: "json", 
               success: function (data, statusText, jqXHR) {  
                   $('.dollar').append(data.dollar+` <img src='https://cdn.pixabay.com/photo/2012/04/11/17/47/chile-29125_640.png' width="40">`)
@@ -186,7 +186,7 @@
           
           $.ajax({  
             type: "GET",  
-            url: "http://localhost:5000/uf",    
+            url: "http://182.160.26.111:5000/uf",    
             dataType: "json", 
             success: function (data, statusText, jqXHR) {  
                 $('.uf').append(data.uf)

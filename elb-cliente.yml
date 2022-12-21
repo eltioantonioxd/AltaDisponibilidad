@@ -1,15 +1,79 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: elb-cliente
+  name: service-front
+  namespace: andrunose
+  uid: 7af695d9-4b3a-4a89-add1-b3985b3bcdf4
+  resourceVersion: '85286'
+  creationTimestamp: '2022-12-21T17:37:05Z'
+  labels:
+    app: front
+    name: service-front
+  annotations:
+    kubernetes.io/elb.class: union
+    kubernetes.io/elb.health-check-flag: 'on'
+    kubernetes.io/elb.health-check-option: '{"protocol":"TCP","delay":"5","timeout":"10","max_retries":"3"}'
+    kubernetes.io/elb.id: fced2490-2538-45d1-aba9-e468980a971c
+    kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
+  finalizers:
+    - service.kubernetes.io/load-balancer-cleanup
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2022-12-21T17:37:05Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubernetes.io/elb.class': {}
+            'f:kubernetes.io/elb.health-check-flag': {}
+            'f:kubernetes.io/elb.health-check-option': {}
+            'f:kubernetes.io/elb.id': {}
+            'f:kubernetes.io/elb.lb-algorithm': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:name': {}
+        'f:spec':
+          'f:externalTrafficPolicy': {}
+          'f:loadBalancerIP': {}
+          'f:ports':
+            .: {}
+            'k:{"port":80,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:app': {}
+            'f:version': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+    - manager: huawei-cloud-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2022-12-21T17:37:08Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:finalizers':
+            .: {}
+            'v:"service.kubernetes.io/load-balancer-cleanup"': {}
+        'f:status':
+          'f:loadBalancer':
+            'f:ingress': {}
 spec:
   ports:
     - name: cce-service-0
       protocol: TCP
-      port: 5000
-      targetPort: 5000
+      port: 80
+      targetPort: 80
   selector:
-    app: cliente
+    app: front
     version: v1
   type: LoadBalancer
   sessionAffinity: None
@@ -19,4 +83,4 @@ status:
   loadBalancer:
     ingress:
       - ip: 182.160.26.111
-      - ip: 192.168.0.23
+      - ip: 192.168.0.203

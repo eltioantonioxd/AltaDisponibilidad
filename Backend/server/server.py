@@ -24,6 +24,7 @@ def current_date_format(date):
     month = months[date.month - 1]
     year = date.year
     messsage = "{} de {} del {}".format(day, month, year)
+    xd="xd"
 
     return messsage
 

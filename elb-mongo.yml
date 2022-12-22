@@ -16,4 +16,3 @@ spec:
   sessionAffinity: None
 status:
   loadBalancer: {}
-  
